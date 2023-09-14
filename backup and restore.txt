@@ -1,0 +1,110 @@
+->download mongodb command line database tools
+->copy path c/programfiles/mongodb/tool/bin and set it to environmental variable
+->create database and add collections and document into it
+->then create folder at appropriate location where you want to take your backup of data
+->open new cmd and go to that directory and run the command
+mongodump
+->this will take backup of all database at specified location
+->to restore go to same directory and run command
+mongorestore
+
+
+
+
+
+
+
+
+test> show databases
+admin     40.00 KiB
+college   72.00 KiB
+config   108.00 KiB
+local     72.00 KiB
+restore   40.00 KiB
+test> use restore
+switched to db restore
+restore> show collections
+customer
+restore> db.customer.find()
+[
+  {
+    _id: ObjectId("650327cc21aa86e146fa1ac4"),
+    name: 'mahesh',
+    age: 20
+  }
+]
+restore> db.createCollections('payment')
+restore> db.createCollection('payment')
+{ ok: 1 }
+restore> pay1={_id:1,"amount":20000,"date":"20/12/2019"}
+{ _id: 1, amount: 20000, date: '20/12/2019' }
+restore> db.payment.insert(pay1)
+DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.
+{ acknowledged: true, insertedIds: { '0': 1 } }
+restore> db.payment.find()
+[ { _id: 1, amount: 20000, date: '20/12/2019' } ]
+restore> show dbs
+admin     40.00 KiB
+college   72.00 KiB
+config   108.00 KiB
+local     72.00 KiB
+restore   80.00 KiB
+restore> db.dropDatabase()
+{ ok: 1, dropped: 'restore' }
+restore> show dbs
+admin     40.00 KiB
+college   72.00 KiB
+config   108.00 KiB
+local     72.00 KiB
+
+
+
+for backup:
+C:\Users\mahesh shere>cd C:\backup
+C:\backup>mongodump
+
+for restoring:
+C:\backup>mongorestore
+
+
+
+
+
+
+after restoring:
+
+restore> show dbs
+admin     40.00 KiB
+college   72.00 KiB
+config   108.00 KiB
+local     72.00 KiB
+restore   16.00 KiB
+restore> show collections
+customer
+payment
+restore> db.customer.find
+[Function: find] AsyncFunction {
+  returnsPromise: true,
+  apiVersions: [ 1, Infinity ],
+  returnType: 'Cursor',
+  serverVersions: [ '0.0.0', '999.999.999' ],
+  topologies: [ 'ReplSet', 'Sharded', 'LoadBalanced', 'Standalone' ],
+  deprecated: false,
+  platforms: [ 'Compass', 'Browser', 'CLI' ],
+  isDirectShellCommand: false,
+  acceptsRawInput: false,
+  shellCommandCompleter: undefined,
+  help: [Function (anonymous)] Help
+}
+restore>
+
+restore> db.customer.find()
+[
+  {
+    _id: ObjectId("650327cc21aa86e146fa1ac4"),
+    name: 'mahesh',
+    age: 20
+  }
+]
+restore> db.payment.find()
+[ { _id: 1, amount: 20000, date: '20/12/2019' } ]
