@@ -1,0 +1,306 @@
+> show databases
+admin  0.000GB
+local  0.000GB
+
+create database
+> use osms
+switched to db osms
+> db
+osms
+create collection
+> db.createCollection('user')
+{ "ok" : 1 }
+
+> db.user.find()
+
+
+
+> user1={_id:1,f_name:"mahesh",l_name:"shere",phone:7643578544,email:"sheremahesh0@gmail.com"}
+{
+        "_id" : 1,
+        "f_name" : "mahesh",
+        "l_name" : "shere",
+        "phone" : 7643578544,
+        "email" : "sheremahesh0@gmail.com"
+}
+
+
+
+> db.user.insert(user1)
+
+WriteResult({ "nInserted" : 1 })
+> db.user.insert(user2)
+WriteResult({ "nInserted" : 1 })
+
+> db.user.find()
+{ "_id" : 1, "f_name" : "mahesh", "l_name" : "shere", "phone" : 7643578544, "email" : "sheremahesh0@gmail.com" }
+{ "_id" : 3, "f_name" : "prathamesh", "l_name" : "shukla", "phone" : 9892235364, "email" : "shuklaprathamesh14@gmail.com" }
+> user3={_id:3,f_name:"prathamesh",l_name:"shukla",phone:9892235364,email:"shuklaprathamesh14@gmail.com"}
+{
+        "_id" : 3,
+        "f_name" : "prathamesh",
+        "l_name" : "shukla",
+        "phone" : 9892235364,
+        "email" : "shuklaprathamesh14@gmail.com"
+}
+> user4={_id:3,f_name:"omkar",l_name:"sawant",phone:9892652723,email:"sawantomkar1912@gmail.com"}
+{
+        "_id" : 3,
+        "f_name" : "omkar",
+        "l_name" : "sawant",
+        "phone" : 9892652723,
+        "email" : "sawantomkar1912@gmail.com"
+}
+> user4={_id:4,f_name:"omkar",l_name:"sawant",phone:9892652723,email:"sawantomkar1912@gmail.com"}
+{
+        "_id" : 4,
+        "f_name" : "omkar",
+        "l_name" : "sawant",
+        "phone" : 9892652723,
+        "email" : "sawantomkar1912@gmail.com"
+}
+> db.user.find()
+{ "_id" : 1, "f_name" : "mahesh", "l_name" : "shere", "phone" : 7643578544, "email" : "sheremahesh0@gmail.com" }
+{ "_id" : 3, "f_name" : "prathamesh", "l_name" : "shukla", "phone" : 9892235364, "email" : "shuklaprathamesh14@gmail.com" }
+> db.user.insert(user4)
+WriteResult({ "nInserted" : 1 })
+> db.user.find()
+{ "_id" : 1, "f_name" : "mahesh", "l_name" : "shere", "phone" : 7643578544, "email" : "sheremahesh0@gmail.com" }
+{ "_id" : 3, "f_name" : "prathamesh", "l_name" : "shukla", "phone" : 9892235364, "email" : "shuklaprathamesh14@gmail.com" }
+{ "_id" : 4, "f_name" : "omkar", "l_name" : "sawant", "phone" : 9892652723, "email" : "sawantomkar1912@gmail.com" }
+> user5={_id:5,f_name:"manish",l_name:"gupta",phone:8450213678,email:"guptamanish03@gmail.com"}
+{
+        "_id" : 5,
+        "f_name" : "manish",
+        "l_name" : "gupta",
+        "phone" : 8450213678,
+        "email" : "guptamanish03@gmail.com"
+}
+DISPLAY ALL DETAILS OF USER
+> db.user.find()
+{ "_id" : 1, "f_name" : "mahesh", "l_name" : "shere", "phone" : 7643578544, "email" : "sheremahesh0@gmail.com" }
+{ "_id" : 3, "f_name" : "prathamesh", "l_name" : "shukla", "phone" : 9892235364, "email" : "shuklaprathamesh14@gmail.com" }
+{ "_id" : 4, "f_name" : "omkar", "l_name" : "sawant", "phone" : 9892652723, "email" : "sawantomkar1912@gmail.com" }
+> db.user.insert(user5)
+WriteResult({ "nInserted" : 1 })
+> db.user.find()
+{ "_id" : 1, "f_name" : "mahesh", "l_name" : "shere", "phone" : 7643578544, "email" : "sheremahesh0@gmail.com" }
+{ "_id" : 3, "f_name" : "prathamesh", "l_name" : "shukla", "phone" : 9892235364, "email" : "shuklaprathamesh14@gmail.com" }
+{ "_id" : 4, "f_name" : "omkar", "l_name" : "sawant", "phone" : 9892652723, "email" : "sawantomkar1912@gmail.com" }
+{ "_id" : 5, "f_name" : "manish", "l_name" : "gupta", "phone" : 8450213678, "email" : "guptamanish03@gmail.com" }
+> user2={_id:2,f_name:"piyush",l_name:"rana",phone:7845638696,email:"piyushrana45@gmail.com"}
+{
+        "_id" : 2,
+        "f_name" : "piyush",
+        "l_name" : "rana",
+        "phone" : 7845638696,
+        "email" : "piyushrana45@gmail.com"
+}
+> db.user.insert(user2)
+WriteResult({ "nInserted" : 1 })
+> db.user.find()
+{ "_id" : 1, "f_name" : "mahesh", "l_name" : "shere", "phone" : 7643578544, "email" : "sheremahesh0@gmail.com" }
+{ "_id" : 3, "f_name" : "prathamesh", "l_name" : "shukla", "phone" : 9892235364, "email" : "shuklaprathamesh14@gmail.com" }
+{ "_id" : 4, "f_name" : "omkar", "l_name" : "sawant", "phone" : 9892652723, "email" : "sawantomkar1912@gmail.com" }
+{ "_id" : 5, "f_name" : "manish", "l_name" : "gupta", "phone" : 8450213678, "email" : "guptamanish03@gmail.com" }
+{ "_id" : 2, "f_name" : "piyush", "l_name" : "rana", "phone" : 7845638696, "email" : "piyushrana45@gmail.com" }
+> db.user.find({},{name:1})
+{ "_id" : 1 }
+{ "_id" : 3 }
+{ "_id" : 4 }
+{ "_id" : 5 }
+{ "_id" : 2 }
+> db.user.find({},{f_name:1})
+{ "_id" : 1, "f_name" : "mahesh" }
+{ "_id" : 3, "f_name" : "prathamesh" }
+{ "_id" : 4, "f_name" : "omkar" }
+{ "_id" : 5, "f_name" : "manish" }
+{ "_id" : 2, "f_name" : "piyush" }
+> db.createCollection('payment')
+{ "ok" : 1 }
+
+> pay1={ _id:1,pay_id:0001,pay_amt:20000,pay_date:"1/09/2023"}
+{ "_id" : 1, "pay_id" : 1, "pay_amt" : 20000, "pay_date" : "1/09/2023" }
+> pay2={ _id:2,pay_id:0002,pay_amt:40000,pay_date:"23/08/2023"}
+{ "_id" : 2, "pay_id" : 2, "pay_amt" : 40000, "pay_date" : "23/08/2023" }
+> pay3={ _id:3,pay_id:0003,pay_amt:15000,pay_date:"22/08/2023"}
+{ "_id" : 3, "pay_id" : 3, "pay_amt" : 15000, "pay_date" : "22/08/2023" }
+> pay4={ _id:4,pay_id:0004,pay_amt:17000,pay_date:"19/08/2023"}
+{ "_id" : 4, "pay_id" : 4, "pay_amt" : 17000, "pay_date" : "19/08/2023" }
+
+
+
+
+
+insert ALL PAYMENT RECORD
+> db.payment.insert([pay1,pay2,pay3,pay4])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 4,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [  ]
+})
+
+
+
+> db.payment.find()
+{ "_id" : 1, "pay_id" : 1, "pay_amt" : 20000, "pay_date" : "1/09/2023" }
+{ "_id" : 2, "pay_id" : 2, "pay_amt" : 40000, "pay_date" : "23/08/2023" }
+{ "_id" : 3, "pay_id" : 3, "pay_amt" : 15000, "pay_date" : "22/08/2023" }
+{ "_id" : 4, "pay_id" : 4, "pay_amt" : 17000, "pay_date" : "19/08/2023" }
+> db.payment.find({_id:1})
+{ "_id" : 1, "pay_id" : 1, "pay_amt" : 20000, "pay_date" : "1/09/2023" }
+> db.payment.find({_id:1},{pay_amt:1})
+{ "_id" : 1, "pay_amt" : 20000 }
+
+> db.payment.find()
+{ "_id" : 1, "pay_id" : 1, "pay_amt" : 20000, "pay_date" : "1/09/2023" }
+{ "_id" : 2, "pay_id" : 2, "pay_amt" : 40000, "pay_date" : "23/08/2023" }
+{ "_id" : 3, "pay_id" : 3, "pay_amt" : 15000, "pay_date" : "22/08/2023" }
+{ "_id" : 4, "pay_id" : 4, "pay_amt" : 17000, "pay_date" : "19/08/2023" }
+> db.user.find()
+{ "_id" : 1, "f_name" : "mahesh", "l_name" : "shere", "phone" : 7643578544, "email" : "sheremahesh0@gmail.com" }
+{ "_id" : 3, "f_name" : "prathamesh", "l_name" : "shukla", "phone" : 9892235364, "email" : "shuklaprathamesh14@gmail.com" }
+{ "_id" : 4, "f_name" : "omkar", "l_name" : "sawant", "phone" : 9892652723, "email" : "sawantomkar1912@gmail.com" }
+{ "_id" : 5, "f_name" : "manish", "l_name" : "gupta", "phone" : 8450213678, "email" : "guptamanish03@gmail.com" }
+{ "_id" : 2, "f_name" : "piyush", "l_name" : "rana", "phone" : 7845638696, "email" : "piyushrana45@gmail.com" }
+
+
+update the mobile number of user where id is 12
+> db.user.update({_id:2},{$set:{"phone":9892219775}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.user.find()
+{ "_id" : 1, "f_name" : "mahesh", "l_name" : "shere", "phone" : 7643578544, "email" : "sheremahesh0@gmail.com" }
+{ "_id" : 3, "f_name" : "prathamesh", "l_name" : "shukla", "phone" : 9892235364, "email" : "shuklaprathamesh14@gmail.com" }
+{ "_id" : 4, "f_name" : "omkar", "l_name" : "sawant", "phone" : 9892652723, "email" : "sawantomkar1912@gmail.com" }
+{ "_id" : 5, "f_name" : "manish", "l_name" : "gupta", "phone" : 8450213678, "email" : "guptamanish03@gmail.com" }
+{ "_id" : 2, "f_name" : "piyush", "l_name" : "rana", "phone" : 9892219775, "email" : "piyushrana45@gmail.com" }
+
+
+delete the user whose id is 5:
+> db.user.remove({_id:5})
+WriteResult({ "nRemoved" : 1 })
+> db.user.find()
+{ "_id" : 1, "f_name" : "mahesh", "l_name" : "shere", "phone" : 7643578544, "email" : "sheremahesh0@gmail.com" }
+{ "_id" : 3, "f_name" : "prathamesh", "l_name" : "shukla", "phone" : 9892235364, "email" : "shuklaprathamesh14@gmail.com" }
+{ "_id" : 4, "f_name" : "omkar", "l_name" : "sawant", "phone" : 9892652723, "email" : "sawantomkar1912@gmail.com" }
+{ "_id" : 2, "f_name" : "piyush", "l_name" : "rana", "phone" : 9892219775, "email" : "piyushrana45@gmail.com" }
+
+
+
+
+display user in ascending order by f_name:
+> db.user.find().sort({f_name:1})
+{ "_id" : 1, "f_name" : "mahesh", "l_name" : "shere", "phone" : 7643578544, "email" : "sheremahesh0@gmail.com" }
+{ "_id" : 4, "f_name" : "omkar", "l_name" : "sawant", "phone" : 9892652723, "email" : "sawantomkar1912@gmail.com" }
+{ "_id" : 2, "f_name" : "piyush", "l_name" : "rana", "phone" : 9892219775, "email" : "piyushrana45@gmail.com" }
+{ "_id" : 3, "f_name" : "prathamesh", "l_name" : "shukla", "phone" : 9892235364, "email" : "shuklaprathamesh14@gmail.com" }
+
+display user in descending order by f_name:
+> db.user.find().sort({f_name:-1})
+{ "_id" : 3, "f_name" : "prathamesh", "l_name" : "shukla", "phone" : 9892235364, "email" : "shuklaprathamesh14@gmail.com" }
+{ "_id" : 2, "f_name" : "piyush", "l_name" : "rana", "phone" : 9892219775, "email" : "piyushrana45@gmail.com" }
+{ "_id" : 4, "f_name" : "omkar", "l_name" : "sawant", "phone" : 9892652723, "email" : "sawantomkar1912@gmail.com" }
+{ "_id" : 1, "f_name" : "mahesh", "l_name" : "shere", "phone" : 7643578544, "email" : "sheremahesh0@gmail.com" }
+
+
+
+
+display the payment amount of user whose id is 1:
+> db.payment.find({_id:1},{pay_amt:1})
+{ "_id" : 1, "pay_amt" : 20000 }
+
+
+
+display all databases:
+> show databases
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+osms    0.000GB
+user    0.000GB
+
+display all tables of databases:
+> show collections
+inventory
+payment
+user
+
+
+
+display data in particular mannare:
+> db.payment.find().pretty()
+{ "_id" : 1, "pay_id" : 1, "pay_amt" : 20000, "pay_date" : "1/09/2023" }
+{ "_id" : 2, "pay_id" : 2, "pay_amt" : 40000, "pay_date" : "23/08/2023" }
+{ "_id" : 3, "pay_id" : 3, "pay_amt" : 15000, "pay_date" : "22/08/2023" }
+{ "_id" : 4, "pay_id" : 4, "pay_amt" : 17000, "pay_date" : "19/08/2023" }
+
+
+display only first two entries:
+> db.inventory.find().limit(2)
+{ "_id" : 1, "pro_id" : 1, "name" : "mouse", "quantity" : 3, "cost" : 500 }
+{ "_id" : 2, "pro_id" : 2, "name" : "keyboard", "quantity" : 2, "cost" : 1000 }
+
+display only entries with skiping first two documents:
+> db.inventory.find().skip(2)
+{ "_id" : 3, "pro_id" : 3, "name" : "sensors", "quantity" : 4, "cost" : 1500 }
+
+
+display the product id of product whose cost is 500:
+> db.inventory.find({cost:{$eq:500}},{pro_id:1})
+{ "_id" : 1, "pro_id" : 1 } 
+
+display the products whose cost is equal to 500:
+> db.inventory.find({cost:{$eq:500}},{pro_id:1})
+{ "_id" : 1, "pro_id" : 1 }
+
+display the products whose cost is more than 500:
+> db.inventory.find({cost:{$gt:500}},{pro_id:1})
+{ "_id" : 2, "pro_id" : 2 }
+{ "_id" : 3, "pro_id" : 3 }
+
+display the product whose cost is greater than equasl to 500:
+> db.inventory.find({cost:{$gte:500}},{pro_id:1})
+{ "_id" : 1, "pro_id" : 1 }
+{ "_id" : 2, "pro_id" : 2 }
+{ "_id" : 3, "pro_id" : 3 }
+
+
+
+
+update the name of field(rename it):
+> db.inventory.update({},{$rename:{name:"pro_name"}},{multi:true})
+WriteResult({ "nMatched" : 3, "nUpserted" : 0, "nModified" : 2 })
+
+> db.inventory.find()
+{ "_id" : 1, "pro_id" : 1, "quantity" : 3, "cost" : 500, "pro_name" : "mouse" }
+{ "_id" : 2, "pro_id" : 2, "quantity" : 2, "cost" : 1000, "pro_name" : "keyboard" }
+{ "_id" : 3, "pro_id" : 3, "quantity" : 4, "cost" : 1500, "pro_name" : "sensors" }
+
+method2(using updateMany):
+> db.user.updateMany({},{$rename:{phone:"mo_no"}})
+{ "acknowledged" : true, "matchedCount" : 4, "modifiedCount" : 4 }
+> db.user.find()
+{ "_id" : 1, "f_name" : "mahesh", "l_name" : "shere", "email" : "sheremahesh0@gmail.com", "mo_no" : 7643578544 }
+{ "_id" : 3, "f_name" : "prathamesh", "l_name" : "shukla", "email" : "shuklaprathamesh14@gmail.com", "mo_no" : 9892235364 }
+{ "_id" : 4, "f_name" : "omkar", "l_name" : "sawant", "email" : "sawantomkar1912@gmail.com", "mo_no" : 9892652723 }
+{ "_id" : 2, "f_name" : "piyush", "l_name" : "rana", "email" : "piyushrana45@gmail.com", "mo_no" : 9892219775 }
+
+
+increment the value of product by 200 whose id is 2:
+> db.inventory.update({_id:2},{$inc:{cost:200}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.inventory.find()
+{ "_id" : 1, "pro_id" : 1, "quantity" : 3, "cost" : 500, "pro_name" : "mouse" }
+{ "_id" : 2, "pro_id" : 2, "quantity" : 2, "cost" : 1200, "pro_name" : "keyboard" }
+{ "_id" : 3, "pro_id" : 3, "quantity" : 4, "cost" : 1500, "pro_name" : "sensors" } 
+
+
+
+
+
+
