@@ -1,0 +1,44 @@
+#for connectivity of python with mongodb
+from pymongo import MongoClient
+client = MongoClient()
+client = MongoClient('localhost', 27017)
+#for accesing databases
+db=client.user
+#for accesing collection
+collection=db.inventory
+
+#for inserting data
+user1={"name":" bhavesh","age":21}
+res = collection.insert(user1)
+print("Data inserted ......")
+print(res)
+
+
+#for retreiving first record
+print("First record of the collection: ")
+print(collection.find_one())
+
+
+#for retreiving multiple document:
+for i in collection.find():
+    print(i)
+# for deleting a document
+myquery = { "age": 21 }
+delete=collection.delete_many(myquery)
+print("data deleted.....")
+
+
+
+#for updating
+myquery = { "name": "ganesh" }
+newvalues = { "$set": { "age": 50 } }
+
+collection.update_one(myquery, newvalues)
+print("data updated")
+
+
+
+
+
+
+
