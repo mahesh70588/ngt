@@ -1,0 +1,94 @@
+
+//comparison
+db.createCollection('payment')
+{ "ok" : 1 }
+> db.payment.insertMany([{"_id":1,"name":"mahesh","amt":200},{"_id":2,"name":"omkar","amt":300},{"_id":3,"name":"piyush","amt":500},{"_id":4,"name":"gokul","amt":5000}])
+{ "acknowledged" : true, "insertedIds" : [ 1, 2, 3, 4 ] }
+> db.payment.find()
+{ "_id" : 1, "name" : "mahesh", "amt" : 200 }
+{ "_id" : 2, "name" : "omkar", "amt" : 300 }
+{ "_id" : 3, "name" : "piyush", "amt" : 500 }
+{ "_id" : 4, "name" : "gokul", "amt" : 5000 }
+> db.payment.find({"amt":{$eq:500}})
+{ "_id" : 3, "name" : "piyush", "amt" : 500 }
+> db.payment.find({"amt":{$neq:500}})
+Error: error: {
+        "ok" : 0,
+        "errmsg" : "unknown operator: $neq",
+        "code" : 2,
+        "codeName" : "BadValue"
+}
+> db.payment.find({"amt":{$ne:500}})
+{ "_id" : 1, "name" : "mahesh", "amt" : 200 }
+{ "_id" : 2, "name" : "omkar", "amt" : 300 }
+{ "_id" : 4, "name" : "gokul", "amt" : 5000 }
+> db.payment.find({"amt":{$gt:300}})
+{ "_id" : 3, "name" : "piyush", "amt" : 500 }
+{ "_id" : 4, "name" : "gokul", "amt" : 5000 }
+> db.payment.find({"amt":{$gte:300}})
+{ "_id" : 2, "name" : "omkar", "amt" : 300 }
+{ "_id" : 3, "name" : "piyush", "amt" : 500 }
+{ "_id" : 4, "name" : "gokul", "amt" : 5000 }
+> db.payment.find({"amt":{$in:[300,5000]}})
+{ "_id" : 2, "name" : "omkar", "amt" : 300 }
+{ "_id" : 4, "name" : "gokul", "amt" : 5000 }
+> db.payment.find({"amt":{$in:[300,5000]}},{name:1})
+{ "_id" : 2, "name" : "omkar" }
+{ "_id" : 4, "name" : "gokul" }
+> db.payment.find({"amt":{$in:[300,5000]}},{name:1,_id:0})
+{ "name" : "omkar" }
+{ "name" : "gokul" }
+> db.payment.find({"amt":{$nin:[300,5000]}},{name:1,_id:0})
+{ "name" : "mahesh" }
+{ "name" : "piyush" }
+> db.payment.find({"amt":{$nin:[300,5000]}},{name:1,amt:1})
+{ "_id" : 1, "name" : "mahesh", "amt" : 200 }
+{ "_id" : 3, "name" : "piyush", "amt" : 500 }
+> db.payment.find({"amt":{$lt:500}})
+{ "_id" : 1, "name" : "mahesh", "amt" : 200 }
+{ "_id" : 2, "name" : "omkar", "amt" : 300 }
+> db.payment.find({"amt":{$lte:300}})
+{ "_id" : 1, "name" : "mahesh", "amt" : 200 }
+{ "_id" : 2, "name" : "omkar", "amt" : 300 }
+>
+
+
+
+//logical
+
+db.payment.updateMany({_id:1},{$set:{"lastname":"shere"}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.payment.find()
+{ "_id" : 1, "name" : "mahesh", "amt" : 200, "lastname" : "shere" }
+{ "_id" : 2, "name" : "omkar", "amt" : 300 }
+{ "_id" : 3, "name" : "piyush", "amt" : 500 }
+{ "_id" : 4, "name" : "gokul", "amt" : 5000 }
+> db.payment.updateMany({_id:2},{$set:{"lastname":"sawant"}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.payment.updateMany({_id:2},{$set:{"lastname":"rana"}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.payment.updateMany({_id:2},{$set:{"lastname":"sawant"}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.payment.updateMany({_id:3},{$set:{"lastname":"rana"}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.payment.updateMany({_id:4},{$set:{"lastname":"dixit"}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.payment.find()
+{ "_id" : 1, "name" : "mahesh", "amt" : 200, "lastname" : "shere" }
+{ "_id" : 2, "name" : "omkar", "amt" : 300, "lastname" : "sawant" }
+{ "_id" : 3, "name" : "piyush", "amt" : 500, "lastname" : "rana" }
+{ "_id" : 4, "name" : "gokul", "amt" : 5000, "lastname" : "dixit" }
+> db.payment.find({$or:[{"name":"mahesh"},{"amt":5000}]})
+{ "_id" : 1, "name" : "mahesh", "amt" : 200, "lastname" : "shere" }
+{ "_id" : 4, "name" : "gokul", "amt" : 5000, "lastname" : "dixit" }
+> db.payment.find({$and:[{"name":"mahesh"},{"amt":5000}]})
+> db.payment.find({$and:[{"name":"mahesh"},{"amt":200}]})
+{ "_id" : 1, "name" : "mahesh", "amt" : 200, "lastname" : "shere" }
+> db.payment.find({"amt":{$not:{$eq:5000}}})
+{ "_id" : 1, "name" : "mahesh", "amt" : 200, "lastname" : "shere" }
+{ "_id" : 2, "name" : "omkar", "amt" : 300, "lastname" : "sawant" }
+{ "_id" : 3, "name" : "piyush", "amt" : 500, "lastname" : "rana" }
+> db.payment.find({$nor:[{"name":"mahesh"},{"amt":5000}]})
+{ "_id" : 2, "name" : "omkar", "amt" : 300, "lastname" : "sawant" }
+{ "_id" : 3, "name" : "piyush", "amt" : 500, "lastname" : "rana" }
+>
